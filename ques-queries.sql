@@ -30,7 +30,7 @@ SELECT
 FROM
     EMPLOYEE;
 
---Q5 Query to display the Employee Name & Salary of all the employees earning more than $2850.
+--Q5 Query to display the Employee Name & Salary of all the employees earning more than $2850. (earning = salary + commission)
 
 SELECT
     ENAME,
@@ -38,7 +38,7 @@ SELECT
 FROM
     EMPLOYEE
 WHERE
-    SALARY > 2850;
+    SALARY + COMMISSION > 2850;
 
 --Q6 Query to display Employee Name & Department Number for the Employee No= 790.
 
@@ -190,7 +190,25 @@ SELECT
 FROM
     DUAL;
 
---Q19)
+--Q19) Query to display Employee No., Name, Salary and the Salary increased by 15 % expressed as a absolute whole number
+
+SELECT
+    ENO,
+    ENAME,
+    SALARY,
+    ROUND (SALARY * 1.15)
+FROM
+    EMPLOYEE;
+
+--Q20) Query to display Name, Hire Date and Salary Review Date which is the 1st Monday after six months of employment.
+-- date + 3 -> adds 3 days
+
+SELECT
+    ENAME,
+    HIRE_DATE,
+    HIRE_DATE + INTERVAL '6' MONTH AS REVIEW_DATE
+FROM
+    EMPLOYEE;
 
 --Renaming column
 ALTER TABLE EMPLOYEE RENAME COLUMN COMMISION TO COMMISSION;
